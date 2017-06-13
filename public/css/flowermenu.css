@@ -1,30 +1,8 @@
-/*body {
-   padding: 0;
-   margin: 0;
-   background: #596778;
-   color: #EEEEEE;
-   text-align: center;
-   font-family: "Lato", sans-serif;
-}
-
-@media screen and (max-width: 700px) {
-   body {
-      padding: 170px 0 0 0;
-      width: 100%
-   }
-}
-*/
 
 html, body { 
   min-height: 100%; 
 }
-/*body {
-  background: #92c7d6;
-  background-image: -webkit-radial-gradient(top, circle cover, #97d0e1, #427388 80%);
-  background-image: -moz-radial-gradient(top, circle cover, #97d0e1, #427388 80%);
-  background-image: -o-radial-gradient(top, circle cover, #97d0e1, #427388 80%);
-  background-image: radial-gradient(top, circle cover, #97d0e1, #427388 80%);
-}*/
+
 
 
 [type="checkbox"]+label {
