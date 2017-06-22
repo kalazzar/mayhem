@@ -3,6 +3,7 @@
 Homestead.yaml
 Homestead.json
 .env
+.env.example
 
 /public/css/frontend.css
 /public/css/frontend.css.map
