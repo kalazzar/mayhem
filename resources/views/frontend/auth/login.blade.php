@@ -1,4 +1,4 @@
-@extends('frontend.layouts.masterGuest')
+@extends('layouts.app')
 
 @section('content')
 <head>

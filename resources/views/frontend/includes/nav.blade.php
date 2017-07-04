@@ -1,6 +1,4 @@
-<style type="text/css">
 
-</style>
 <nav class="navbar navbar-default navbar-fixed-top ">
     <div class="container" style="margin-top: 7px">
         <div class="navbar-header">
@@ -47,10 +45,10 @@
                             @endif  --}}
 
                             @permission('view-backend')
-                                <li>{!! link_to_route('admin.dashboard', trans('navs.frontend.user.administration')) !!}</li>
+                                <li>{!! link_to_route('admin', trans('navs.frontend.user.administration')) !!}</li>
                             @endauth
 
-                            <li>{!! link_to_route('auth.logout', trans('navs.general.logout')) !!}</li>
+                            <li>{!! link_to_route('logout', trans('navs.general.logout')) !!}</li>
                         </ul>
                     </li>
                     

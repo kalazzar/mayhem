@@ -21,7 +21,6 @@
 
         <!-- Styles -->
         @yield('before-styles-end')
-        {!! Html::style(elixir('css/frontend.css')) !!}
         @yield('after-styles-end')
 
         <!-- Fonts -->
@@ -60,14 +59,8 @@
               });
         </script>
 
-
-
-
-        {{-- {!! Html::script('js/vendor/bootstrap/bootstrap.min.js') !!} --}}
         @yield('before-scripts-end')
 
-
-        {{-- {!! Html::script(elixir('js/frontend.js')) !!} --}}
         @yield('after-scripts-end')
 
         @include('includes.partials.ga')
