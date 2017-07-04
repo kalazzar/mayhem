@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="_token" content="{{ csrf_token() }}" />
 
-        <title>This is Mayhem</title>
+        <title>@yield('title', app_name())</title>
 
         <!-- Meta -->
         <meta name="description" content="@yield('meta_description', 'Default Description')">
@@ -36,9 +36,8 @@
     </head>
     <body id="app-layout">
 
-    @if(Auth::check()) 
-    @include('includes.nav')
-    @endif
+        @include('frontend.includes.nav')
+
         <div class="container">
             @include('includes.partials.messages')
             @yield('content')
@@ -60,9 +59,7 @@
               });
         </script>
 
-
         @yield('before-scripts-end')
-
 
         @yield('after-scripts-end')
 

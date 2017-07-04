@@ -9,10 +9,9 @@
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="_token" content="{{ csrf_token() }}" />
 
-        <title>This is Mayhem</title>
+        <title>@yield('title', app_name())</title>
 
         <!-- Meta -->
         <meta name="description" content="@yield('meta_description', 'Default Description')">
@@ -21,6 +20,7 @@
 
         <!-- Styles -->
         @yield('before-styles-end')
+        {!! Html::style(elixir('css/frontend.css')) !!}
         @yield('after-styles-end')
 
         <!-- Fonts -->
@@ -36,9 +36,8 @@
     </head>
     <body id="app-layout">
 
-    @if(Auth::check()) 
-    @include('includes.nav')
-    @endif
+        {{-- @include('frontend.includes.nav') --}}
+
         <div class="container">
             @include('includes.partials.messages')
             @yield('content')
@@ -51,19 +50,12 @@
         <script>window.jQuery || document.write('<script src="{{asset('js/vendor/jquery/jquery-2.1.4.min.js')}}"><\/script>')</script>
 
         <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.21/vue.js"></script>  
 
-        <script type="text/javascript">
 
-           $(document).ready(function(){
-                $('.tooltipped').tooltip({delay: 50});
-              });
-        </script>
-
+        {{-- {!! Html::script('js/vendor/bootstrap/bootstrap.min.js') !!} --}}
 
         @yield('before-scripts-end')
-
-
+        {{-- {!! Html::script(elixir('js/frontend.js')) !!} --}}
         @yield('after-scripts-end')
 
         @include('includes.partials.ga')
