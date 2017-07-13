@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-default navbar-fixed-top ">
     <div class="container" style="">
-        <div class="navbar-header">
+        <div class="navbar-header pull-left" style="display: inline-block;">
 
             <!-- Collapsed Hamburger -->
 
@@ -12,7 +12,7 @@
             </a>
         </div><!--navbar-header-->
 
-        <div class="collapse navbar-collapse" id="frontend-navbar-collapse">
+        <div class="collapse navbar-collapse pull-right" id="frontend-navbar-collapse" style="display: inline-block;">
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">

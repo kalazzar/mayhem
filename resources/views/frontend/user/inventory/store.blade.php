@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('layouts.master')
 
 @section('content')
 
@@ -25,11 +25,16 @@
       right: 20px;
       top: 20px;
     }
+
+    nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    margin-top: 12px;
+    font-size: 35px;
+}
 </style>
 
 <div class="main store_body">
 
-<a href="../dashboard" class="closeBtn btn-floating btn-large waves-effect waves-light red"><i class="material-icons">close</i></a>
+<a href="/" class="closeBtn btn-floating btn-large waves-effect waves-light red"><i class="material-icons">close</i></a>
 
 <!-- <img src="http://chart.apis.google.com/chart?cht=qr&chs=150x150&chl=www.codediesel.com" /> -->
 
@@ -77,7 +82,7 @@
      <div class="form-group">
         <div class="col-md-12" style="margin-top: 30px;">
             <div align="center">
-            {!! Form::reset(trans('labels.frontend.auth.clear_button'), ['class' => 'btn btn-primary']) !!}
+            {!! Form::reset(trans('Clear'), ['class' => 'btn btn-primary']) !!}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {!! Form::submit(trans('Save'), ['class' => 'btn btn-primary']) !!}
             </div>
