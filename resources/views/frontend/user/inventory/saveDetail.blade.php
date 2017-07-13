@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('layouts.master')
 
 @section('content')
 
@@ -79,7 +79,7 @@
 
 <div class="main store_body">
 
-  <a href="../dashboard" class="closeBtn btn-floating btn-large waves-effect waves-light red"><i class="material-icons">close</i></a>
+  <a href="/" class="closeBtn btn-floating btn-large waves-effect waves-light red"><i class="material-icons">close</i></a>
 <!-- <img src="http://chart.apis.google.com/chart?cht=qr&chs=150x150&chl=www.codediesel.com" /> -->
 
 

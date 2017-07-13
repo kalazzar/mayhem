@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+@extends('layouts.master')
 
 @section('content')
 
@@ -29,7 +29,7 @@
 	<div class="title" style="margin-bottom: 30px;">
 		  <ul id="tabs-swipe-demo" class="tabs">
 		    <li class="tab col s3"><a href="#InvStore">Inventory Store</a></li>
-		    <li class="tab col s3"><a href="#InvOut">Inventory Out</a></li>
+		    <!-- <li class="tab col s3"><a href="#InvOut">Inventory Out</a></li> -->
 		  </ul>
     </div>
 
@@ -91,7 +91,7 @@
 	</div> <!-- invStore end -->
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
-	<div id="InvOut" class="col s12">
+	<div id="InvOut" class="col s12" style="display: none">
 
 
    <template id="grid-template">
@@ -110,9 +110,6 @@
 	    </thead>
 	    <tbody>
 	      <tr v-for="entry in filteredData | limitBy rowsPerPage startRow">
-<!-- 	        <td v-for="key in columns">
-	          @{{entry[key]}}
-	        </td> -->
 	        <td>@{{entry.name}}</td>
        		<td>@{{entry.batch}}</td>
        		<td>@{{entry.quantity}}</td>
@@ -138,7 +135,6 @@
 		        <div class="input-field col s12">
 		          <i class="material-icons prefix">search</i>
 		          <input id="search" name="query" v-model="searchQueryOut" placeholder="Search" @keyup="resetStartRow">
-		          <!-- <label for="autocomplete-output">Search</label> -->
 		        </div>
 		      </div>
 		    </div>
