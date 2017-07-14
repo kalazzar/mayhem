@@ -52,7 +52,7 @@ class InventoryController extends Controller
         // $d = new DNS1D();
         // $d->setStorPath(__DIR__."/cache/");
         $d2 = new DNS2D();
-        $d2->setStorPath(__DIR__."/cache/");
+        $d2->setStorPath(asset("barcode/"));
 
         // $barcode = $d2->getBarcodeHTML($barVal, "QRCODE",4,4);
         // $barcode = $d->getBarcodeHTML($barVal, "C128");
@@ -61,7 +61,7 @@ class InventoryController extends Controller
         $barcode = tb_inventory::whereBatch($id)->get();
 
         foreach($barcode as $code){
-        $codeData[] = [ 'code' => $d2->getBarcodePNG('http://www.google.com/'.$code->id, "QRCODE",4,4),
+        $codeData[] = [ 'code' => $d2->getBarcodePNG(env('production_ip')."/checkout/".$code->id, "QRCODE",4,4),
                         'id'=>$code->id,
                         'batch'=>$code->batch,
                         'model'=>$code->model,
@@ -93,6 +93,34 @@ class InventoryController extends Controller
         return view('frontend.user.inventory.inventory')->with('dataIn',$dataIn)->with('dataOut',$dataOut)->with('data',$data);
     }
 
+    public function showCheckout()
+    {
+
+        return view('frontend.user.inventory.checkout');
+    }
+
+    public function checkout(request $request)
+    {
+        $data = tb_inventory::whereId($request->check)->first();
+
+        if($data){
+            $d2 = new DNS2D();
+            $d2->setStorPath(asset("barcode/"));
+
+            $data['id'] = $data->id;
+            $data['name'] =  $data->name;
+            $data['model'] = $data->model;
+            $data['batch'] = $data->batch;
+            $data['code'] = $d2->getBarcodePNG(env('production_ip')."/checkout/".$data->id, "QRCODE",4,4);
+
+            return view('frontend.user.inventory.checkout', compact('data'));
+        }
+        else{
+            $msg = "Error, there is data on that id";
+            return Redirect::back()->withErrors($msg);
+        }
+    }
+
     public function autoComplete()
     {
         $data = tb_inventory::whereStatus('IN')->groupby('batch')->lists('name');
@@ -100,10 +128,8 @@ class InventoryController extends Controller
     }
 
     public function showlog(){
-        $data = tb_activitylog::get();
-
+        $data = tb_inventory::select(array('tb_inventory.*', DB::raw('COUNT(id) as quantity')))->groupby('batch')->get();
         return view('frontend.user.inventory.log')->with('data',$data);
-
     }
 
 
