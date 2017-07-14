@@ -22,6 +22,8 @@ Route::get('store', 'InventoryController@showStore')->name('store');
 Route::post('save_inventory', 'InventoryController@store');
 Route::get('saveDetail/{id}', 'InventoryController@showSaveDetail')->name('saveDetail');
 Route::get('log', 'InventoryController@showlog')->name('log');
+Route::get('checkout', 'InventoryController@showCheckout')->name('checkout');
+Route::post('checkout', 'InventoryController@checkout')->name('checkout');
 
 Route::get('inventory', 'InventoryController@showInventory')->name('inventory');
 

@@ -55,13 +55,15 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
    <a href="#" class="menu-item green"> <i class="fa fa-coffee"></i> </a> -->
    <a href="store" class="menu-item green tooltipped" data-position="right" data-delay="50" data-tooltip="Store Inventory"><i class="material-icons">system_update_alt</i> </a>
    <a href="inventory" class="menu-item blue tooltipped" data-position="bottom" data-delay="50" data-tooltip="Inventory"><i class="material-icons">content_paste</i></a>
-   <a href="#" class="menu-item orange tooltipped" data-position="bottom" data-delay="50" data-tooltip="Inventory Log"><i class="material-icons">description</i> </a>
+   <a href="log" class="menu-item orange tooltipped" data-position="bottom" data-delay="50" data-tooltip="Inventory Log"><i class="material-icons">description</i> </a>
+
+   <a href="checkout" class="menu-item purple tooltipped" data-position="left" data-delay="50" data-tooltip="Manual Checkout"><i class="material-icons">fingerprint</i></a>
   
-   @if(Voyager::can('browse_admin'))
+   {{-- @if(Voyager::can('browse_admin'))
    <a href="/admin" class="menu-item purple tooltipped" data-position="left" data-delay="50" data-tooltip="Admin Dashboard"><i class="material-icons">fingerprint</i></a>
    @else
    <a href="#" class="menu-item purple tooltipped" data-position="left" data-delay="50" data-tooltip="About"><i class="material-icons">fingerprint</i></a>
-   @endif
+   @endif --}}
 </nav>
 
 
