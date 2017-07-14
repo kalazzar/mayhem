@@ -61,7 +61,7 @@ class InventoryController extends Controller
         $barcode = tb_inventory::whereBatch($id)->get();
 
         foreach($barcode as $code){
-        $codeData[] = [ 'code' => $d2->getBarcodePNG(env('production_ip')."/checkout/".$code->id, "QRCODE",4,4),
+        $codeData[] = [ 'code' => $d2->getBarcodePNG(env('APP_URL')."/checkout/".$code->id, "QRCODE",4,4),
                         'id'=>$code->id,
                         'batch'=>$code->batch,
                         'model'=>$code->model,
@@ -111,7 +111,7 @@ class InventoryController extends Controller
             $data['name'] =  $data->name;
             $data['model'] = $data->model;
             $data['batch'] = $data->batch;
-            $data['code'] = $d2->getBarcodePNG(env('production_ip')."/checkout/".$data->id, "QRCODE",4,4);
+            $data['code'] = $d2->getBarcodePNG(env('APP_URL')."/checkout/".$data->id, "QRCODE",4,4);
 
             return view('frontend.user.inventory.checkout', compact('data'));
         }
